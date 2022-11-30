@@ -1,4 +1,4 @@
-/SPDX-License-Identifier: Unlicense
+//SPDX-License-Identifier: Unlicense
 
 // contracts/BuyMeACoffee.sol
 pragma solidity ^0.8.0;
@@ -14,7 +14,7 @@ contract BuyMeACoffee {
         string name,
         string message
     );
-    
+
     // Memo struct.
     struct Memo {
         address from;
@@ -22,7 +22,7 @@ contract BuyMeACoffee {
         string name;
         string message;
     }
-    
+
     // Address of contract deployer. Marked payable so that
     // we can withdraw to this address later.
     address payable owner;
@@ -48,25 +48,18 @@ contract BuyMeACoffee {
      * @param _name name of the coffee purchaser
      * @param _message a nice message from the purchaser
      */
-    function buyCoffee(string memory _name, string memory _message) public payable {
+    function buyCoffee(string memory _name, string memory _message)
+        public
+        payable
+    {
         // Must accept more than 0 ETH for a coffee.
         require(msg.value > 0, "can't buy coffee for free!");
 
         // Add the memo to storage!
-        memos.push(Memo(
-            msg.sender,
-            block.timestamp,
-            _name,
-            _message
-        ));
+        memos.push(Memo(msg.sender, block.timestamp, _name, _message));
 
         // Emit a NewMemo event with details about the memo.
-        emit NewMemo(
-            msg.sender,
-            block.timestamp,
-            _name,
-            _message
-        );
+        emit NewMemo(msg.sender, block.timestamp, _name, _message);
     }
 
     /**

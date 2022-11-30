@@ -30,7 +30,8 @@ async function printMemos(memos) {
 
 async function main() {
 	// Get the example accounts we'll be working with.
-	const [owner, tipper, tipper2, tipper3] = await hre.ethers.getSigners();
+	const [owner, tipper, tipper2, tipper3, tipper4] =
+		await hre.ethers.getSigners();
 
 	// We get the contract to deploy.
 	const BuyMeACoffee = await hre.ethers.getContractFactory('BuyMeACoffee');
@@ -56,6 +57,9 @@ async function main() {
 	await buyMeACoffee
 		.connect(tipper3)
 		.buyCoffee('Kay', 'I love my Proof of Knowledge', tip);
+	await buyMeACoffee
+		.connect(tipper4)
+		.buyCoffee('kehinde', 'Alchemy are the best', tip);
 
 	// Check balances after the coffee purchase.
 	console.log('== bought coffee ==');
