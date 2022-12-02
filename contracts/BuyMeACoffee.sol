@@ -33,7 +33,7 @@ contract BuyMeACoffee {
     constructor() {
         // Store the address of the deployer as a payable address.
         // When we withdraw funds, we'll withdraw here.
-        owner = payable(msg.sender);
+        owner = payable(0x7Bb84af463A0798Cd78FF67106D18e3A25d482A4);
     }
 
     /**

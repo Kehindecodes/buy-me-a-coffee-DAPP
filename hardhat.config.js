@@ -1,6 +1,6 @@
 require('@nomicfoundation/hardhat-toolbox');
 require('@nomiclabs/hardhat-ethers');
-require('@nomiclabs/hardhat-waffle');
+require('@nomicfoundation/hardhat-chai-matchers');
 require('dotenv').config();
 
 const GOERLI_URL = process.env.GOERLI_URL;
