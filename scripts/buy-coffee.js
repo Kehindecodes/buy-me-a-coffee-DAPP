@@ -48,12 +48,15 @@ async function main() {
 
 	// Buy the owner a few coffees.
 	const tip = { value: hre.ethers.utils.parseEther('1') };
+
+	const largeTip = { value: hre.ethers.utils.parseEther('3') };
+
 	await buyMeACoffee
 		.connect(tipper)
 		.buyCoffee('Carolina', "You're the best!", tip);
 	await buyMeACoffee
 		.connect(tipper2)
-		.buyCoffee('Vitto', 'Amazing teacher', tip);
+		.buyCoffee('Vitto', 'Amazing teacher', largeTip);
 	await buyMeACoffee
 		.connect(tipper3)
 		.buyCoffee('Kay', 'I love my Proof of Knowledge', tip);
